@@ -1,4 +1,4 @@
-let requests = [];
+const requests = loadRequests();
 
 class Request {
 	constructor(id, name, phone, email, product) {
@@ -21,6 +21,17 @@ function addRequest(formData) {
 
 	// Добавляем в массив с заявками
 	requests.push(request)
+
+	// Сохранение в localStorage
+	savaRequests()
+}
+
+function savaRequests() {
+	localStorage.setItem('requests', JSON.stringify(requests))
+}
+
+function loadRequests() {
+	return localStorage.getItem('requests') ? JSON.parse(localStorage.getItem('requests')) : []
 }
 
 export { addRequest }
