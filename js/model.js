@@ -72,4 +72,16 @@ function getRequestById(id) {
 	return request
 }
 
-export { addRequest, getRequests, getRequestById }
+function updateRequest(formData) {
+	const request = getRequestById(formData.get('id'))
+
+	request.name = formData.get('name')
+	request.email = formData.get('email')
+	request.phone = formData.get('phone')
+	request.product = formData.get('product')
+	request.status = formData.get('status')
+	
+	savaRequests()
+}
+
+export { addRequest, getRequests, getRequestById, updateRequest }
