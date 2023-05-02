@@ -6,6 +6,16 @@ function init() {
 	const id = getRequestId()
 	const request = model.getRequestById(id)
 	view.renderRequest(request)
+	setupEventListener()
+}
+
+function setupEventListener() {
+	view.elements.form.addEventListener('submit', formSubmitHandler)
+}
+
+function formSubmitHandler(e) {
+	e.preventDefault();
+	const data = view.getFormInput()
 }
 
 function getRequestId() {
