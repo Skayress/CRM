@@ -63,4 +63,8 @@ function prepareRequests(requests) {
 	})
 }
 
-export { addRequest, getRequests }
+function getRequestById(id) {
+	return requests.find(item => item.id == id)
+}
+
+export { addRequest, getRequests, getRequestById }
