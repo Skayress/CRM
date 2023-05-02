@@ -35,7 +35,16 @@ function loadRequests() {
 }
 
 function getRequests() {
-	return requests
+	return prepareRequests(requests)
+}
+
+function prepareRequests(requests) {
+	return requests.map((item) => {
+		return {
+			...item,
+			date: new Date(item.date).toLocaleDateString()
+		}
+	})
 }
 
 export { addRequest, getRequests }
