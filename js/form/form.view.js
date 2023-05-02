@@ -18,4 +18,8 @@ function getFormInput() {
 	return new FormData(elements.form)
 }
 
-export { insertTestData, getFormInput, elements }
+function clearForm() {
+	elements.form.reset()
+}
+
+export { insertTestData, getFormInput, clearForm, elements }

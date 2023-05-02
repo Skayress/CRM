@@ -12,14 +12,15 @@ function setupEventListeners() {
 }
 
 function renderTestData() {
-	const randomData = getRandomData()
-	view.insertTestData(randomData)
+	view.insertTestData(getRandomData())
 }
 
 function formSubmitHandler(e) {
 	e.preventDefault()
 	const formData = view.getFormInput()
 	model.addRequest(formData)
+	view.clearForm()
+	renderTestData()
 }
 
 init()
