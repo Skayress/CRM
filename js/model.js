@@ -14,7 +14,7 @@ class Request {
 
 function addRequest(formData) {
 	// Определяем id
-	const id = requests.length > 0 ? requests[requests.length - 1]['id'] + 1 : 0
+	const id = requests.length > 0 ? requests[requests.length - 1]['id'] + 1 : 1
 
 	// Создаем заявку
 	const request = new Request(id, formData.get('name'), formData.get('phone'), formData.get('email'), formData.get('product'))
@@ -34,4 +34,8 @@ function loadRequests() {
 	return localStorage.getItem('requests') ? JSON.parse(localStorage.getItem('requests')) : []
 }
 
-export { addRequest }
+function getRequests() {
+	return requests
+}
+
+export { addRequest, getRequests }
