@@ -46,12 +46,19 @@ const products = {
 	'course-wordpress': 'Курс по WordPress',
 }
 
+const statuses = {
+	'new': 'Новая',
+	'inwork': 'В работе',
+	'complete': 'Завершена',
+}
+
 function prepareRequests(requests) {
 	return requests.map((item) => {
 		return {
 			...item,
 			date: new Date(item.date).toLocaleDateString(),
-			productName: products[item.product]
+			productName: products[item.product],
+			statusName: statuses[item.status]
 		}
 	})
 }
