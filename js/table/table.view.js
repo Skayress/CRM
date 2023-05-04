@@ -1,5 +1,6 @@
 const elements = {
-	table: document.querySelector('#tbody')
+	table: document.querySelector('#tbody'),
+	select: document.querySelector('#productSelect')
 }
 
 function renderRequest(requests) {
