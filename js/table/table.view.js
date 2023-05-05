@@ -1,7 +1,9 @@
 const elements = {
 	table: document.querySelector('#tbody'),
 	select: document.querySelector('#productSelect'),
-	topStatusBar: document.querySelector('#topStatusBar')
+	topStatusBar: document.querySelector('#topStatusBar'),
+	leftStatusLink: document.querySelectorAll('[data-role="left-status"]'),
+	leftPanelNav: document.querySelector('.left-panel__navigation')
 }
 
 function renderRequest(requests) {
@@ -34,9 +36,12 @@ function renderRequest(requests) {
 	}
 }
 
-function updateTopStatusBar(value) {
+function updateActiveStatus(value) {
 	elements.topStatusBar.querySelectorAll('a').forEach(link => link.classList.remove('active'))
 	elements.topStatusBar.querySelector(`a[data-value="${value}"]`).classList.add('active')
+
+	elements.leftStatusLink.forEach(link => link.classList.remove('active'))
+	elements.leftPanelNav.querySelector(`a[data-value="${value}"]`).classList.add('active')
 }
 
-export { renderRequest, updateTopStatusBar, elements}
+export { renderRequest, updateActiveStatus, elements}
