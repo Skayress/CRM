@@ -26,13 +26,24 @@ const statuses = {
 	'complete': 'Завершена',
 }
 
-const filter = {
-	products: 'all',
-	status: 'all'
+const filter = loadFilter()
+
+function loadFilter() {
+	let filter = {
+		products: 'all',
+		status: 'all'
+	}
+
+	if (localStorage.getItem('filter')) {
+		filter = JSON.parse(localStorage.getItem('filter'))
+	}
+
+	return filter
 }
 
 function changeFilter(prop, value) {
 	filter[prop] = value
+	localStorage.setItem('filter', JSON.stringify(filter))
 	return filter
 }
 
@@ -82,7 +93,8 @@ function loadRequests() {
 }
 
 function getRequests() {
-	return prepareRequests(requests)
+	const filteredRequests = filterRequests(filter)
+	return prepareRequests(filteredRequests)
 }
 
 function prepareRequests(requests) {
