@@ -5,6 +5,9 @@ function init() {
 	const requests = model.getRequests()
 	view.renderRequest(requests)
 	addEventListeners()
+
+	const newRequstsCount = model.countNewRequests()
+	view.renderBadgeNew(newRequstsCount)
 }
 
 function addEventListeners() {

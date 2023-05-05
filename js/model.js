@@ -54,6 +54,11 @@ function filterRequests(filter) {
 	return prepareRequests(filteredRequests)
 }
 
+function countNewRequests() {
+	const newRequests = requests.filter(el => el.status === 'new')
+	return newRequests.length
+}
+
 function addRequest(formData) {
 	// Определяем id
 	const id = requests.length > 0 ? requests[requests.length - 1]['id'] + 1 : 1
@@ -112,4 +117,4 @@ function updateRequest(formData) {
 	savaRequests()
 }
 
-export { addRequest, getRequests, getRequestById, updateRequest, changeFilter, filterRequests }
+export { addRequest, getRequests, getRequestById, updateRequest, changeFilter, filterRequests, countNewRequests }
