@@ -34,4 +34,9 @@ function renderRequest(requests) {
 	}
 }
 
-export { renderRequest,  elements}
+function updateTopStatusBar(value) {
+	elements.topStatusBar.querySelectorAll('a').forEach(link => link.classList.remove('active'))
+	elements.topStatusBar.querySelector(`a[data-value="${value}"]`).classList.add('active')
+}
+
+export { renderRequest, updateTopStatusBar, elements}
