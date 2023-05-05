@@ -39,8 +39,16 @@ function changeFilter(prop, value) {
 function filterRequests(filter) {
 	let filteredRequests;
 
+	// Фильтр по продукту
 	if (filter.products !== 'all') {
 		filteredRequests = requests.filter(el => el.product === filter.products)
+	} else {
+		filteredRequests = [...requests]
+	}
+
+	// Фильтр по статусу
+	if (filter.status !== 'all') {
+		filteredRequests = filteredRequests.filter(el => el.status === filter.status)
 	}
 
 	return prepareRequests(filteredRequests)
