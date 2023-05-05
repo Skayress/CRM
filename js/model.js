@@ -129,4 +129,8 @@ function updateRequest(formData) {
 	savaRequests()
 }
 
-export { addRequest, getRequests, getRequestById, updateRequest, changeFilter, filterRequests, countNewRequests }
+function getFilter() {
+	return {...filter}
+}
+
+export { addRequest, getRequests, getRequestById, updateRequest, changeFilter, filterRequests, countNewRequests, getFilter }

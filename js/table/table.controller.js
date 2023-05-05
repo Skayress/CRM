@@ -8,6 +8,9 @@ function init() {
 
 	const newRequstsCount = model.countNewRequests()
 	view.renderBadgeNew(newRequstsCount)
+
+	const filter = model.getFilter()
+	view.updateFilter(filter)
 }
 
 function addEventListeners() {
