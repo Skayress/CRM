@@ -100,7 +100,7 @@ function prepareRequests(requests) {
 	return requests.map((item) => {
 		return {
 			...item,
-			dateToDosplay: new Date(item.date).toLocaleDateString(),
+			dateToDisplay: new Date(item.date).toLocaleDateString(),
 			productName: products[item.product],
 			statusName: statuses[item.status]
 		}
