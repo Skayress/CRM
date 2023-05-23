@@ -93,15 +93,14 @@ function loadRequests() {
 }
 
 function getRequests() {
-	const filteredRequests = filterRequests(filter)
-	return prepareRequests(filteredRequests)
+	return filterRequests(filter)
 }
 
 function prepareRequests(requests) {
 	return requests.map((item) => {
 		return {
 			...item,
-			date: new Date(item.date).toLocaleDateString(),
+			dateToDosplay: new Date(item.date).toLocaleDateString(),
 			productName: products[item.product],
 			statusName: statuses[item.status]
 		}
@@ -130,7 +129,7 @@ function updateRequest(formData) {
 }
 
 function getFilter() {
-	return {...filter}
+	return { ...filter }
 }
 
 export { addRequest, getRequests, getRequestById, updateRequest, changeFilter, filterRequests, countNewRequests, getFilter }
